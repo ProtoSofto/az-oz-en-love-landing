@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Heart, Download } from "lucide-react";
-import { useLanguage } from "@/hooks/useLanguage";
+import { Heart, MessageCircle, Crown } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import heroImage from "@/assets/hero-dating.jpg";
 
 const Hero = () => {
@@ -28,10 +28,18 @@ const Hero = () => {
               </p>
             </div>
             
+            {/* Exclusive Access Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-romantic-purple/20 border border-romantic-purple/30 rounded-full text-sm mb-6">
+              <Crown className="w-4 h-4 text-romantic-pink" />
+              <span className="text-romantic-pink font-medium">{t('exclusiveAccess')}</span>
+              <span className="text-foreground/70">• {t('invitationOnly')}</span>
+            </div>
+
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 size="lg" 
                 className="bg-love-gradient hover:opacity-90 text-white px-8 py-6 text-lg shadow-romantic transition-all duration-300 hover:shadow-glow"
+                onClick={() => window.open('https://t.me/loveapp_manager', '_blank')}
               >
                 <Heart className="w-5 h-5 mr-2 fill-current" />
                 {t('startNow')}
@@ -40,24 +48,25 @@ const Hero = () => {
                 size="lg" 
                 variant="outline" 
                 className="px-8 py-6 text-lg border-romantic-purple/50 text-romantic-purple hover:bg-romantic-purple/10 transition-all duration-300"
+                onClick={() => window.open('https://t.me/loveapp_manager', '_blank')}
               >
-                <Download className="w-5 h-5 mr-2" />
-                {t('download')}
+                <MessageCircle className="w-5 h-5 mr-2" />
+                {t('contactManager')}
               </Button>
             </div>
             
             {/* Stats */}
             <div className="grid grid-cols-3 gap-8 pt-8 border-t border-border/50">
               <div className="text-center">
-                <div className="text-2xl font-bold bg-love-gradient bg-clip-text text-transparent">50K+</div>
+                <div className="text-2xl font-bold bg-love-gradient bg-clip-text text-transparent">2.5K</div>
                 <div className="text-sm text-foreground/60">{t('activeUsers')}</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold bg-love-gradient bg-clip-text text-transparent">15K+</div>
+                <div className="text-2xl font-bold bg-love-gradient bg-clip-text text-transparent">1.8K</div>
                 <div className="text-sm text-foreground/60">{t('successfulMatches')}</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold bg-love-gradient bg-clip-text text-transparent">5K+</div>
+                <div className="text-2xl font-bold bg-love-gradient bg-clip-text text-transparent">450</div>
                 <div className="text-sm text-foreground/60">{t('happyCouples')}</div>
               </div>
             </div>

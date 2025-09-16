@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 
 export type Language = 'az' | 'uz' | 'en';
 
@@ -16,9 +16,9 @@ export const translations: Translations = {
     en: 'Features'
   },
   download: {
-    az: 'Yüklə',
-    uz: 'Yuklab olish',
-    en: 'Download'
+    az: 'Əlaqə',
+    uz: 'Aloqa',
+    en: 'Contact'
   },
   
   // Hero Section
@@ -28,14 +28,24 @@ export const translations: Translations = {
     en: 'Find Your Soulmate'
   },
   heroSubtitle: {
-    az: 'Əsl sevgini tapmaq üçün ən yaxşı təcrübə',
-    uz: 'Haqiqiy sevgini topish uchun eng yaxshi tajriba',
-    en: 'The best experience to find true love'
+    az: 'Əsl sevgini tapmaq üçün ən yaxşı təcrübə. Giriş yalnız dəvət ilə.',
+    uz: 'Haqiqiy sevgini topish uchun eng yaxshi tajriba. Kirish faqat taklif bilan.',
+    en: 'The best experience to find true love. Entry by invitation only.'
   },
   startNow: {
-    az: 'İndi Başla',
-    uz: 'Hoziroq Boshlang',
-    en: 'Start Now'
+    az: 'Dəvət Al',
+    uz: 'Taklif Oling',
+    en: 'Get Invitation'
+  },
+  exclusiveAccess: {
+    az: 'Eksklüziv Giriş',
+    uz: 'Eksklyuziv Kirish',
+    en: 'Exclusive Access'
+  },
+  invitationOnly: {
+    az: 'Yalnız Dəvətlə',
+    uz: 'Faqat Taklif Bilan',
+    en: 'Invitation Only'
   },
   
   // Features
@@ -72,9 +82,9 @@ export const translations: Translations = {
   
   // Stats
   activeUsers: {
-    az: 'Aktiv İstifadəçi',
-    uz: 'Faol Foydalanuvchi',
-    en: 'Active Users'
+    az: 'Seçilmiş İstifadəçi',
+    uz: 'Tanlangan Foydalanuvchi',
+    en: 'Selected Users'
   },
   successfulMatches: {
     az: 'Uğurlu Uyğunluq',
@@ -89,14 +99,19 @@ export const translations: Translations = {
   
   // Call to Action
   readyToStart: {
-    az: 'Sevgi Səyahətinizə Başlamağa Hazırsınızmı?',
-    uz: 'Sevgi Sayohatingizni Boshlashga Tayyormisiz?',
-    en: 'Ready to Start Your Love Journey?'
+    az: 'Eksklüziv Klubumuza Qoşulmaq İstəyirsiniz?',
+    uz: 'Eksklyuziv Klubimizga Qo\'shilishni Xohlaysizmi?',
+    en: 'Want to Join Our Exclusive Club?'
   },
   joinToday: {
-    az: 'Bu gün qoşulun və həyat yoldaşınızı tapın',
-    uz: 'Bugun qo\'shiling va hayot sherigingizni toping',
-    en: 'Join today and find your perfect match'
+    az: 'Menecerlə əlaqə saxlayın və dəvət alın',
+    uz: 'Menejer bilan bog\'laning va taklif oling',
+    en: 'Contact our manager and get an invitation'
+  },
+  contactManager: {
+    az: 'Menecerlə Əlaqə',
+    uz: 'Menejer Bilan Aloqa',
+    en: 'Contact Manager'
   },
   
   // Footer
@@ -117,16 +132,32 @@ export const translations: Translations = {
   }
 };
 
-export const useLanguage = () => {
+interface LanguageContextType {
+  language: Language;
+  setLanguage: (lang: Language) => void;
+  t: (key: string) => string;
+}
+
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+
+export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [language, setLanguage] = useState<Language>('az');
 
   const t = (key: string): string => {
     return translations[key]?.[language] || key;
   };
 
-  return {
-    language,
-    setLanguage,
-    t
-  };
+  return (
+    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+      {children}
+    </LanguageContext.Provider>
+  );
+};
+
+export const useLanguage = () => {
+  const context = useContext(LanguageContext);
+  if (context === undefined) {
+    throw new Error('useLanguage must be used within a LanguageProvider');
+  }
+  return context;
 };

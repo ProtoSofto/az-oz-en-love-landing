@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Heart, Shield, Users, Sparkles, MessageCircle, Star } from "lucide-react";
-import { useLanguage } from "@/hooks/useLanguage";
+import { Heart, Shield, Users, Sparkles, MessageCircle, Crown } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Features = () => {
   const { t } = useLanguage();
@@ -37,9 +37,9 @@ const Features = () => {
       color: 'bg-romantic-purple/10 text-romantic-purple'
     },
     {
-      icon: Star,
-      title: 'Premium Xidmətlər',
-      description: 'Eksklüziv funksiyalar və prioritet dəstək',
+      icon: Crown,
+      title: 'Eksklüziv Klub',
+      description: 'Yalnız seçilmiş üzvlər üçün premium təcrübə',
       color: 'bg-romantic-pink/10 text-romantic-pink'
     }
   ];

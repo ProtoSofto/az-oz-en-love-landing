@@ -1,5 +1,5 @@
 import { Heart, Mail, Phone, MapPin } from "lucide-react";
-import { useLanguage } from "@/hooks/useLanguage";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -19,7 +19,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-foreground/70">
-              Həqiqi sevgini tapmaq üçün ən yaxşı platformа. Milyonlarla insanın etibar etdiyi tətbiq.
+              Həqiqi sevgini tapmaq üçün ən yaxşı eksklüziv platform. Qapalı beta mərhələsində olan premium tətbiq.
             </p>
           </div>
           

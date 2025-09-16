@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Smartphone, Download, Apple } from "lucide-react";
-import { useLanguage } from "@/hooks/useLanguage";
+import { Smartphone, MessageCircle, Crown } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const DownloadSection = () => {
   const { t } = useLanguage();
@@ -30,20 +30,20 @@ const DownloadSection = () => {
                   </p>
                 </div>
                 
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                {/* Exclusive Club Badge */}
+                <div className="inline-flex items-center gap-2 px-6 py-3 bg-romantic-purple/10 border border-romantic-purple/20 rounded-full text-lg mb-6">
+                  <Crown className="w-5 h-5 text-romantic-pink" />
+                  <span className="text-romantic-pink font-semibold">Qapalı Beta Versiyası</span>
+                </div>
+
+                <div className="flex justify-center">
                   <Button 
                     size="lg" 
-                    className="bg-black hover:bg-gray-800 text-white px-8 py-6 text-lg flex items-center gap-3 transition-all duration-300 shadow-card-glow"
+                    className="bg-love-gradient hover:opacity-90 text-white px-12 py-8 text-xl flex items-center gap-3 transition-all duration-300 shadow-romantic hover:shadow-glow"
+                    onClick={() => window.open('https://t.me/loveapp_manager', '_blank')}
                   >
-                    <Apple className="w-6 h-6" />
-                    App Store
-                  </Button>
-                  <Button 
-                    size="lg" 
-                    className="bg-love-gradient hover:opacity-90 text-white px-8 py-6 text-lg flex items-center gap-3 transition-all duration-300 shadow-romantic"
-                  >
-                    <Download className="w-6 h-6" />
-                    Google Play
+                    <MessageCircle className="w-6 h-6" />
+                    {t('contactManager')}
                   </Button>
                 </div>
                 
@@ -51,21 +51,21 @@ const DownloadSection = () => {
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div className="text-center">
                       <div className="text-3xl font-bold bg-love-gradient bg-clip-text text-transparent">
-                        100K+
+                        Beta
                       </div>
-                      <div className="text-foreground/60">Yükləmələr</div>
+                      <div className="text-foreground/60">Mərhələ</div>
                     </div>
                     <div className="text-center">
                       <div className="text-3xl font-bold bg-love-gradient bg-clip-text text-transparent">
-                        4.8★
+                        Eksklüziv
                       </div>
-                      <div className="text-foreground/60">Reytinq</div>
+                      <div className="text-foreground/60">Giriş</div>
                     </div>
                     <div className="text-center">
                       <div className="text-3xl font-bold bg-love-gradient bg-clip-text text-transparent">
-                        25+
+                        VIP
                       </div>
-                      <div className="text-foreground/60">Ölkələr</div>
+                      <div className="text-foreground/60">Klub</div>
                     </div>
                   </div>
                 </div>

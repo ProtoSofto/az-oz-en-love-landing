@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Heart } from "lucide-react";
 import LanguageSwitcher from "./LanguageSwitcher";
-import { useLanguage } from "@/hooks/useLanguage";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Header = () => {
   const { t } = useLanguage();
@@ -30,8 +30,12 @@ const Header = () => {
           
           <div className="flex items-center gap-4">
             <LanguageSwitcher />
-            <Button variant="default" className="bg-love-gradient hover:opacity-90 transition-all duration-300 shadow-romantic">
-              {t('download')}
+            <Button 
+              variant="default" 
+              className="bg-love-gradient hover:opacity-90 transition-all duration-300 shadow-romantic"
+              onClick={() => window.open('https://t.me/loveapp_manager', '_blank')}
+            >
+              {t('contactManager')}
             </Button>
           </div>
         </div>
