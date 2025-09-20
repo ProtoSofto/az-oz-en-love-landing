@@ -33,7 +33,7 @@ const Header = () => {
             <Button 
               variant="default" 
               className="bg-love-gradient hover:opacity-90 transition-all duration-300 shadow-romantic"
-              onClick={() => window.open('https://t.me/loveapp_manager', '_blank')}
+              onClick={() => window.open('https://t.me/manager_dilara', '_blank')}
             >
               {t('contactManager')}
             </Button>

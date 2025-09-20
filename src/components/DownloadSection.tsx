@@ -40,7 +40,7 @@ const DownloadSection = () => {
                   <Button 
                     size="lg" 
                     className="bg-love-gradient hover:opacity-90 text-white px-12 py-8 text-xl flex items-center gap-3 transition-all duration-300 shadow-romantic hover:shadow-glow"
-                    onClick={() => window.open('https://t.me/loveapp_manager', '_blank')}
+                    onClick={() => window.open('https://t.me/manager_dilara', '_blank')}
                   >
                     <MessageCircle className="w-6 h-6" />
                     {t('contactManager')}

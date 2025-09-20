@@ -129,6 +129,48 @@ export const translations: Translations = {
     az: 'Xidmət Şərtləri',
     uz: 'Xizmat Shartlari',
     en: 'Terms of Service'
+  },
+  
+  // Verification Info
+  whyThroughManager: {
+    az: 'Niyə Menecer Vasitəsilə?',
+    uz: 'Nega Menejer Orqali?',
+    en: 'Why Through Manager?'
+  },
+  verificationReason: {
+    az: 'Tətbiqimiz yeni başladığına görə və yüksək keyfiyyətli istifadəçi təcrübəsi təmin etmək üçün, bütün qeydiyyatlar menecerimiz vasitəsilə aparılır. Bu, moshənnikarların qarşısını alır və həqiqətən ciddi münasibət axtaranların platformaya daxil olmasını təmin edir.',
+    uz: 'Ilovamiz yangi boshlanganligi sababli va yuqori sifatli foydalanuvchi tajribasini ta\'minlash uchun, barcha ro\'yxatdan o\'tishlar menejerimiz orqali amalga oshiriladi. Bu firibgarlarning oldini oladi va haqiqatan ham jiddiy munosabat izlovchilarning platformaga kirishini ta\'minlaydi.',
+    en: 'Since our app is just launching and to ensure a high-quality user experience, all registrations are handled through our manager. This prevents fraudsters and ensures that only people truly looking for serious relationships join the platform.'
+  },
+  verification: {
+    az: 'Doğrulama',
+    uz: 'Tasdiqlash',
+    en: 'Verification'
+  },
+  verificationDesc: {
+    az: 'Hər istifadəçi şəxsən yoxlanılır',
+    uz: 'Har bir foydalanuvchi shaxsan tekshiriladi',
+    en: 'Every user is personally verified'
+  },
+  security: {
+    az: 'Təhlükəsizlik',
+    uz: 'Xavfsizlik',
+    en: 'Security'
+  },
+  securityDesc: {
+    az: 'Yalnız həqiqi insanlar qəbul edilir',
+    uz: 'Faqat haqiqiy odamlar qabul qilinadi',
+    en: 'Only genuine people are accepted'
+  },
+  exclusivity: {
+    az: 'Eksklüzivlik',
+    uz: 'Eksklyuzivlik',
+    en: 'Exclusivity'
+  },
+  exclusivityDesc: {
+    az: 'Məhdud sayda keyfiyyətli üzv',
+    uz: 'Cheklangan sondagi sifatli a\'zo',
+    en: 'Limited number of quality members'
   }
 };
 
