@@ -11,8 +11,8 @@ const DatingLanding = () => {
       <Header />
       <main>
         <Hero />
-        <Features />
         <VerificationInfo />
+        <Features />
         <DownloadSection />
       </main>
       <Footer />
